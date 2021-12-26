@@ -27,12 +27,6 @@ xt=-dL+hx/2:hx:dL-hx/2;
 yt=-dL+hy/2:hy:dL-hy/2;
 zt=hz/2:hz:1-hz/2;
 
-% for i=1:4
-%     
-%     matVar(i,:,:,:)=ncread(filename,vecStrVariableList(i));
-%     
-% end
-
 matVar(1,:,:,:)=ncread(filename,'w');
 matVar(2,:,:,:)=ncread(filename,'b');
 matVar(3,:,:,:)=ncread(filename,'u');
@@ -43,7 +37,6 @@ matVar(4,:,:,:)=ncread(filename,'v');
 bound_vec=zeros(1,4);
 
 for i=1:4
-    i
     maxVar=max(max(squeeze(matVar(i,:,y_slice,:))))
     minVar=min(min(squeeze(matVar(i,:,y_slice,:))))
     bound_vec(i)=min([abs(maxVar),abs(minVar)])
