@@ -66,63 +66,52 @@ end
 %compute fluxes
 for i=1:4
     subplot(2,2,i)
-    %for k=1:N
     for k=1:N
         plot(squeeze(matDiffFlux(k,i,:)),zt(1:end-1),'LineWidth',1.5)
         title(strcat('$-(',vecStrVariableList(i),vecStrVariableList(1),')_z$'),'interpreter','latex')
         zlabel('z')
         hold on
     end
-    %legend('0', '22.5','45','67.5', '90')
     legend('22.5','45','67.5')
     hold off
 end
 
-hold off
-
 figure(2)
-for i=1
-    %for k=1:N
+
+for i=1:4
     for k=1:N
         plot(squeeze(matDiffFlux(k,i,:)),zt(1:end-1),'LineWidth',1.5)
-        %title(strcat('$-(',vecStrVariableList(i),vecStrVariableList(1),')_z$'),'interpreter','latex')
         title('Upscale Flux of Vertical Momentum','interpreter','latex','FontSize',13)
         ylabel('z','FontSize',12)
         hold on
     end
-    %legend('0', '22.5','45','67.5', '90')
     legend({'22.5','45','67.5'},'FontSize',13)
     hold off
 end
 
 figure(3)
-%compute fluxes
-%for i=[1,3]
+
 i=1;
-    subplot(1,2,1)
-    %for k=1:N
-    for k=1:N
-        plot(squeeze(matDiffFlux(k,i,:)),zt(1:end-1),'LineWidth',1.5)
-        title("Upscale Flux of"+newline+" Vertical Momentum",'interpreter','latex','FontSize',13)
-        zlabel('z')
-        hold on
-    end
-    %legend('0', '22.5','45','67.5', '90')
-    legend('22.5','45','67.5')
-    hold off
-   i=3; 
-    subplot(1,2,2)
-    %for k=1:N
-    for k=1:N
-        plot(squeeze(matDiffFlux(k,i,:)),zt(1:end-1),'LineWidth',1.5)
-        title("Upscale Flux of"+newline+" Zonal Momentum",'interpreter','latex','FontSize',13)
-        zlabel('z')
-        hold on
-    end
-    %legend('0', '22.5','45','67.5', '90')
-    legend('22.5','45','67.5')
-    hold off
-%end
+subplot(1,2,1)
+for k=1:N
+    plot(squeeze(matDiffFlux(k,i,:)),zt(1:end-1),'LineWidth',1.5)
+    title("Upscale Flux of"+newline+" Vertical Momentum",'interpreter','latex','FontSize',13)
+    zlabel('z')
+    hold on
+end
+legend('22.5','45','67.5')
+hold off
+
+i=3; 
+subplot(1,2,2)
+for k=1:N
+    plot(squeeze(matDiffFlux(k,i,:)),zt(1:end-1),'LineWidth',1.5)
+    title("Upscale Flux of"+newline+" Zonal Momentum",'interpreter','latex','FontSize',13)
+    zlabel('z')
+    hold on
+end
+legend('22.5','45','67.5')
+hold off
 
 hold off
 
