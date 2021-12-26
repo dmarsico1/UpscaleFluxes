@@ -1,0 +1,10 @@
+&model
+  N_x = 500
+  N_y = 500
+  N_vert = 45
+  dtheta = 0.0
+  dalpha = 0.25
+  dbeta = 0.25
+  drad = 1.0
+ file_name = 'grid_d0.25_d0.25_rad1.0_t0'
+/

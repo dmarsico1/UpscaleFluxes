@@ -1,0 +1,31 @@
+#!/bin/bash
+
+a_vec=(1.0)
+t_vec=(22.5 45 67.5)
+d1_vec=(0.25 1 4)
+d2_vec=(0.25 1 4)
+
+for i in {0..0}
+do
+for j in {0..2}
+do
+for k in {0..0}
+do
+for m in {0..0}
+do
+	var1=${a_vec[i]}
+	var2=${t_vec[j]}
+	var3=${d1_vec[k]}
+	var4=${d2_vec[m]}
+	sed -i "/drad/c\  drad = ${var1}" NAMELIST
+	sed -i "/dtheta/c\  dtheta = ${var2}" NAMELIST
+	sed -i "/dalpha/c\  dalpha = ${var3}" NAMELIST
+	sed -i "/dbeta/c\  dbeta = ${var4}" NAMELIST
+	sed -i "/file/c\ file_name = 'grid_d${var3}_d${var4}_rad${var1}_t${var2}'" NAMELIST
+
+	mpirun -n 50 main
+
+done
+done
+done
+done
